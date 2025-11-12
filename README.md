@@ -17,8 +17,8 @@ Demo back apuntes mecánica - Aplicación backend para gestión de apuntes sobre
 
 ### Spring Boot Starters
 - **spring-boot-starter-web**: Framework para crear APIs REST, incluye Spring MVC y servidor Tomcat embebido
-- **spring-boot-starter-data-jpa**: Persistencia de datos con JPA/Hibernate y repositorios
-- **spring-boot-starter-data-jdbc**: Acceso a base de datos mediante JDBC
+- **spring-boot-starter-data-jpa**: Persistencia de datos con JPA/Hibernate y repositorios (incluye JDBC internamente)
+- **spring-boot-starter-data-jdbc**: Acceso a base de datos mediante JDBC (redundante si se usa JPA)
 
 ### Herramientas de Desarrollo
 - **spring-boot-devtools**: Herramientas de desarrollo con recarga automática

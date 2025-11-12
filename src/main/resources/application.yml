@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: apuntes-mecanica
+  profiles:
+    active: ${SPRING_PROFILES_ACTIVE:dev}
+
+# Configuración por defecto
+server:
+  port: 8080
+
+logging:
+  level:
+    root: INFO
+    com.am_cars.apuntes_mecanica: DEBUG
+
