@@ -10,6 +10,7 @@ import lombok.Data;
  * - DTOs para Response (datos que se envían al cliente)
  * - Lombok @Data: Genera getters, setters, toString, equals, hashCode
  * 
+ * 
  * Ventajas:
  * - Desacopla las entidades de la API
  * - Permite validaciones específicas
@@ -20,6 +21,10 @@ public class EjemploDTO {
 	
 	private Long id;
 	private String nombre;
+
+
+
+	
 	
 	// Ejemplo de DTOs separados:
 	// EjemploRequestDTO - Para crear/actualizar
