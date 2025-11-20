@@ -1,5 +1,7 @@
 package com.am_cars.apuntes_mecanica.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -43,12 +45,14 @@ public class Vehicle {
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "vehicle_owner_id", nullable = false)
+	@JsonIgnoreProperties({"vehicles", "hibernateLazyInitializer", "handler"})
 	private VehicleOwner vehicleOwner;
 	
 	/**
 	 * Relación One-to-Many: Un Vehicle puede tener 0 o muchos procedimientos
 	 */
 	@OneToMany(mappedBy = "vehicle", cascade = CascadeType.ALL, orphanRemoval = true)
+	@JsonIgnore
 	private List<Procedure> procedures = new ArrayList<>();
 	
 }

@@ -6,9 +6,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
 /**
  * Entidad Mechanic - Representa un mecánico
@@ -25,7 +23,7 @@ public class Mechanic extends Person {
 	private String direccionTaller;
 	
 	@Column(name = "telefono_taller", length = 20)
-	private String telefonoTaller;
+	private Long telefonoTaller;
 	
 	@Column(name = "nombre_taller", length = 100)
 	private String nombreTaller;

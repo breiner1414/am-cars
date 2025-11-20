@@ -1,0 +1,956 @@
+{
+	"info": {
+		"_postman_id": "apuntes-mecanica-api",
+		"name": "Apuntes Mecánica API",
+		"description": "Colección de endpoints para la API de Apuntes Mecánica\n\nBase URL: http://localhost:8080/api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Mechanics",
+			"item": [
+				{
+					"name": "Create Mechanic",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"rol\": \"MECANICO\",\n  \"username\": \"juan_mechanic\",\n  \"password\": \"password123\",\n  \"email\": \"juan@taller.com\",\n  \"tipoDocumento\": \"CC\",\n  \"numeroDoc\": 12345678,\n  \"telefono\": 3001234567,\n  \"direccionTaller\": \"Calle 123 #45-67\",\n  \"telefonoTaller\": \"6012345678\",\n  \"nombreTaller\": \"Taller Juan\",\n  \"horarioAtencion\": \"Lun-Vie 8:00-18:00\",\n  \"especialidades\": [\"MECANICO\", \"MOTORES\", \"FRENOS\"]\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/mechanics",
+							"host": ["{{base_url}}"],
+							"path": ["mechanics"]
+						},
+						"description": "Crea un nuevo mecánico"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Mechanics",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/mechanics",
+							"host": ["{{base_url}}"],
+							"path": ["mechanics"]
+						},
+						"description": "Obtiene todos los mecánicos"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Mechanic by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/mechanics/:id",
+							"host": ["{{base_url}}"],
+							"path": ["mechanics", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Obtiene un mecánico por ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Mechanic",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"rol\": \"MECANICO\",\n  \"username\": \"juan_mechanic_updated\",\n  \"password\": \"newpassword123\",\n  \"email\": \"juan.updated@taller.com\",\n  \"tipoDocumento\": \"CC\",\n  \"numeroDoc\": 12345678,\n  \"telefono\": 3001234567,\n  \"direccionTaller\": \"Calle 123 #45-67 Actualizada\",\n  \"telefonoTaller\": \"6012345679\",\n  \"nombreTaller\": \"Taller Juan Actualizado\",\n  \"horarioAtencion\": \"Lun-Sab 7:00-19:00\",\n  \"especialidades\": [\"MECANICO\", \"MOTORES\", \"FRENOS\", \"SUSPENSION\"]\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/mechanics/:id",
+							"host": ["{{base_url}}"],
+							"path": ["mechanics", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Actualiza un mecánico existente"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Mechanic",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/mechanics/:id",
+							"host": ["{{base_url}}"],
+							"path": ["mechanics", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Elimina un mecánico por ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Mechanic by Username",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/mechanics/username/:username",
+							"host": ["{{base_url}}"],
+							"path": ["mechanics", "username", ":username"],
+							"variable": [
+								{
+									"key": "username",
+									"value": "juan_mechanic"
+								}
+							]
+						},
+						"description": "Busca un mecánico por username"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Mechanic by Email",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/mechanics/email/:email",
+							"host": ["{{base_url}}"],
+							"path": ["mechanics", "email", ":email"],
+							"variable": [
+								{
+									"key": "email",
+									"value": "juan@taller.com"
+								}
+							]
+						},
+						"description": "Busca un mecánico por email"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Mechanic by Documento",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/mechanics/documento/:numeroDoc",
+							"host": ["{{base_url}}"],
+							"path": ["mechanics", "documento", ":numeroDoc"],
+							"variable": [
+								{
+									"key": "numeroDoc",
+									"value": "12345678"
+								}
+							]
+						},
+						"description": "Busca un mecánico por número de documento"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vehicle Owners",
+			"item": [
+				{
+					"name": "Create Vehicle Owner",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"rol\": \"PROPIETARIO\",\n  \"username\": \"carlos_owner\",\n  \"password\": \"password123\",\n  \"email\": \"carlos@email.com\",\n  \"tipoDocumento\": \"CC\",\n  \"numeroDoc\": 87654321,\n  \"telefono\": 3009876543\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/vehicle-owners",
+							"host": ["{{base_url}}"],
+							"path": ["vehicle-owners"]
+						},
+						"description": "Crea un nuevo propietario de vehículo"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Vehicle Owners",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/vehicle-owners",
+							"host": ["{{base_url}}"],
+							"path": ["vehicle-owners"]
+						},
+						"description": "Obtiene todos los propietarios"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Vehicle Owner by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/vehicle-owners/:id",
+							"host": ["{{base_url}}"],
+							"path": ["vehicle-owners", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Obtiene un propietario por ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Vehicle Owner",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"rol\": \"PROPIETARIO\",\n  \"username\": \"carlos_owner_updated\",\n  \"password\": \"newpassword123\",\n  \"email\": \"carlos.updated@email.com\",\n  \"tipoDocumento\": \"CC\",\n  \"numeroDoc\": 87654321,\n  \"telefono\": 3009876544\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/vehicle-owners/:id",
+							"host": ["{{base_url}}"],
+							"path": ["vehicle-owners", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Actualiza un propietario existente"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Vehicle Owner",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/vehicle-owners/:id",
+							"host": ["{{base_url}}"],
+							"path": ["vehicle-owners", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Elimina un propietario por ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Vehicle Owner by Username",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/vehicle-owners/username/:username",
+							"host": ["{{base_url}}"],
+							"path": ["vehicle-owners", "username", ":username"],
+							"variable": [
+								{
+									"key": "username",
+									"value": "carlos_owner"
+								}
+							]
+						},
+						"description": "Busca un propietario por username"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Vehicle Owner by Email",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/vehicle-owners/email/:email",
+							"host": ["{{base_url}}"],
+							"path": ["vehicle-owners", "email", ":email"],
+							"variable": [
+								{
+									"key": "email",
+									"value": "carlos@email.com"
+								}
+							]
+						},
+						"description": "Busca un propietario por email"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Vehicle Owner by Documento",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/vehicle-owners/documento/:numeroDoc",
+							"host": ["{{base_url}}"],
+							"path": ["vehicle-owners", "documento", ":numeroDoc"],
+							"variable": [
+								{
+									"key": "numeroDoc",
+									"value": "87654321"
+								}
+							]
+						},
+						"description": "Busca un propietario por número de documento"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Vehicles",
+			"item": [
+				{
+					"name": "Create Vehicle",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"plate\": \"ABC123\",\n  \"cylinderCapacity\": \"1600cc\",\n  \"color\": \"Rojo\",\n  \"chassisNumber\": \"CH123456789\",\n  \"model\": 2020,\n  \"kilometraje\": 50000,\n  \"vehicleOwner\": {\n    \"id\": 1\n  }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/vehicles",
+							"host": ["{{base_url}}"],
+							"path": ["vehicles"]
+						},
+						"description": "Crea un nuevo vehículo"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Vehicles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/vehicles",
+							"host": ["{{base_url}}"],
+							"path": ["vehicles"]
+						},
+						"description": "Obtiene todos los vehículos"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Vehicle by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/vehicles/:id",
+							"host": ["{{base_url}}"],
+							"path": ["vehicles", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Obtiene un vehículo por ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Vehicle",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"plate\": \"ABC123\",\n  \"cylinderCapacity\": \"1800cc\",\n  \"color\": \"Azul\",\n  \"chassisNumber\": \"CH123456789\",\n  \"model\": 2020,\n  \"kilometraje\": 55000,\n  \"vehicleOwner\": {\n    \"id\": 1\n  }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/vehicles/:id",
+							"host": ["{{base_url}}"],
+							"path": ["vehicles", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Actualiza un vehículo existente"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Vehicle",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/vehicles/:id",
+							"host": ["{{base_url}}"],
+							"path": ["vehicles", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Elimina un vehículo por ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Vehicle by Plate",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/vehicles/plate/:plate",
+							"host": ["{{base_url}}"],
+							"path": ["vehicles", "plate", ":plate"],
+							"variable": [
+								{
+									"key": "plate",
+									"value": "ABC123"
+								}
+							]
+						},
+						"description": "Busca un vehículo por placa"
+					},
+					"response": []
+				},
+				{
+					"name": "Check Plate Exists",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/vehicles/plate/:plate/exists",
+							"host": ["{{base_url}}"],
+							"path": ["vehicles", "plate", ":plate", "exists"],
+							"variable": [
+								{
+									"key": "plate",
+									"value": "ABC123"
+								}
+							]
+						},
+						"description": "Verifica si existe un vehículo con la placa dada"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Vehicles by Owner",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/vehicles/owner/:vehicleOwnerId",
+							"host": ["{{base_url}}"],
+							"path": ["vehicles", "owner", ":vehicleOwnerId"],
+							"variable": [
+								{
+									"key": "vehicleOwnerId",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Busca todos los vehículos de un propietario"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Vehicle by Chassis",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/vehicles/chassis/:chassisNumber",
+							"host": ["{{base_url}}"],
+							"path": ["vehicles", "chassis", ":chassisNumber"],
+							"variable": [
+								{
+									"key": "chassisNumber",
+									"value": "CH123456789"
+								}
+							]
+						},
+						"description": "Busca un vehículo por número de chasis"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Procedures",
+			"item": [
+				{
+					"name": "Create Procedure",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Cambio de aceite\",\n  \"duration\": 60,\n  \"date\": \"2024-01-15\",\n  \"note\": 5,\n  \"vehicle\": {\n    \"id\": 1\n  },\n  \"mechanic\": {\n    \"id\": 1\n  }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/procedures",
+							"host": ["{{base_url}}"],
+							"path": ["procedures"]
+						},
+						"description": "Crea un nuevo procedimiento"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Procedures",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/procedures",
+							"host": ["{{base_url}}"],
+							"path": ["procedures"]
+						},
+						"description": "Obtiene todos los procedimientos"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Procedure by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/procedures/:id",
+							"host": ["{{base_url}}"],
+							"path": ["procedures", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Obtiene un procedimiento por ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Procedure by Code",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/procedures/code/:code",
+							"host": ["{{base_url}}"],
+							"path": ["procedures", "code", ":code"],
+							"variable": [
+								{
+									"key": "code",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Obtiene un procedimiento por código"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Procedure",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Cambio de aceite y filtro\",\n  \"duration\": 90,\n  \"date\": \"2024-01-15\",\n  \"note\": 5,\n  \"vehicle\": {\n    \"id\": 1\n  },\n  \"mechanic\": {\n    \"id\": 1\n  }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/procedures/code/:code",
+							"host": ["{{base_url}}"],
+							"path": ["procedures", "code", ":code"],
+							"variable": [
+								{
+									"key": "code",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Actualiza un procedimiento existente"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Procedure",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/procedures/code/:code",
+							"host": ["{{base_url}}"],
+							"path": ["procedures", "code", ":code"],
+							"variable": [
+								{
+									"key": "code",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Elimina un procedimiento por código"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Procedures by Vehicle",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/procedures/vehicle/:vehicleId",
+							"host": ["{{base_url}}"],
+							"path": ["procedures", "vehicle", ":vehicleId"],
+							"variable": [
+								{
+									"key": "vehicleId",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Busca todos los procedimientos de un vehículo"
+					},
+					"response": []
+				},
+				{
+					"name": "Search Procedures by Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/procedures/search?name=:name",
+							"host": ["{{base_url}}"],
+							"path": ["procedures", "search"],
+							"query": [
+								{
+									"key": "name",
+									"value": "aceite",
+									"description": "Nombre del procedimiento (búsqueda parcial)"
+								}
+							]
+						},
+						"description": "Busca procedimientos por nombre (búsqueda parcial)"
+					},
+					"response": []
+				},
+				{
+					"name": "Check Code Exists",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/procedures/code/:code/exists",
+							"host": ["{{base_url}}"],
+							"path": ["procedures", "code", ":code", "exists"],
+							"variable": [
+								{
+									"key": "code",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Verifica si existe un procedimiento con el código dado"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Notifications",
+			"item": [
+				{
+					"name": "Create Notification",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"message\": \"Recordatorio: Próximo mantenimiento en 5000 km\",\n  \"status\": \"PENDING\",\n  \"vehicle\": {\n    \"id\": 1\n  },\n  \"procedure\": {\n    \"code\": 1\n  }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/notifications",
+							"host": ["{{base_url}}"],
+							"path": ["notifications"]
+						},
+						"description": "Crea una nueva notificación"
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Notifications",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/notifications",
+							"host": ["{{base_url}}"],
+							"path": ["notifications"]
+						},
+						"description": "Obtiene todas las notificaciones"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Notification by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/notifications/:id",
+							"host": ["{{base_url}}"],
+							"path": ["notifications", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Obtiene una notificación por ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Update Notification",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"message\": \"Recordatorio: Próximo mantenimiento en 5000 km - ACTUALIZADO\",\n  \"status\": \"SENT\",\n  \"vehicle\": {\n    \"id\": 1\n  },\n  \"procedure\": {\n    \"code\": 1\n  }\n}"
+						},
+						"url": {
+							"raw": "{{base_url}}/notifications/:id",
+							"host": ["{{base_url}}"],
+							"path": ["notifications", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Actualiza una notificación existente"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Notification",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/notifications/:id",
+							"host": ["{{base_url}}"],
+							"path": ["notifications", ":id"],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Elimina una notificación por ID"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Notifications by Vehicle",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/notifications/vehicle/:vehicleId",
+							"host": ["{{base_url}}"],
+							"path": ["notifications", "vehicle", ":vehicleId"],
+							"variable": [
+								{
+									"key": "vehicleId",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Busca todas las notificaciones de un vehículo"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Recent Notifications by Vehicle",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/notifications/vehicle/:vehicleId/recent",
+							"host": ["{{base_url}}"],
+							"path": ["notifications", "vehicle", ":vehicleId", "recent"],
+							"variable": [
+								{
+									"key": "vehicleId",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Busca todas las notificaciones de un vehículo ordenadas por fecha descendente"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Notifications by Procedure",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/notifications/procedure/:procedureCode",
+							"host": ["{{base_url}}"],
+							"path": ["notifications", "procedure", ":procedureCode"],
+							"variable": [
+								{
+									"key": "procedureCode",
+									"value": "1"
+								}
+							]
+						},
+						"description": "Busca todas las notificaciones de un procedimiento"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Notifications by Status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/notifications/status/:status",
+							"host": ["{{base_url}}"],
+							"path": ["notifications", "status", ":status"],
+							"variable": [
+								{
+									"key": "status",
+									"value": "PENDING",
+									"description": "Valores posibles: PENDING, SENT, COMPLETED"
+								}
+							]
+						},
+						"description": "Busca notificaciones por estado"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Recent Notifications by Status",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/notifications/status/:status/recent",
+							"host": ["{{base_url}}"],
+							"path": ["notifications", "status", ":status", "recent"],
+							"variable": [
+								{
+									"key": "status",
+									"value": "PENDING",
+									"description": "Valores posibles: PENDING, SENT, COMPLETED"
+								}
+							]
+						},
+						"description": "Busca notificaciones por estado ordenadas por fecha descendente"
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8080/api",
+			"type": "string"
+		}
+	]
+}
+

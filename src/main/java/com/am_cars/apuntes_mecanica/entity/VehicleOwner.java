@@ -1,5 +1,6 @@
 package com.am_cars.apuntes_mecanica.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -22,6 +23,7 @@ public class VehicleOwner extends Person {
 	 * Relación One-to-Many: Un VehicleOwner puede tener 0 o muchos vehículos
 	 */
 	@OneToMany(mappedBy = "vehicleOwner", cascade = CascadeType.ALL, orphanRemoval = true)
+	@JsonIgnore
 	private List<Vehicle> vehicles = new ArrayList<>();
 
 	

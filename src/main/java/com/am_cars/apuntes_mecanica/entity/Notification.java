@@ -1,6 +1,7 @@
 package com.am_cars.apuntes_mecanica.entity;
 
 import com.am_cars.apuntes_mecanica.entity.enums.NotificationStatus;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -26,6 +27,7 @@ public class Notification {
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "vehiculo_id", nullable = false)
+	@JsonIgnoreProperties({"procedures", "vehicleOwner", "hibernateLazyInitializer", "handler"})
 	private Vehicle vehicle;
 	
 	/**
@@ -33,6 +35,7 @@ public class Notification {
 	 */
 	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "procedure_id", nullable = false)
+	@JsonIgnoreProperties({"vehicle", "mechanic", "hibernateLazyInitializer", "handler"})
 	private Procedure procedure;
 	
 	@Column(nullable = false, length = 500)
