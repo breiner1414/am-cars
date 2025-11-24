@@ -39,7 +39,7 @@ public abstract class Person {
 	private Integer numeroDoc;
 	
 	@Column(length = 20)
-	private Integer telefono;
+	private Long telefono;
 	
 	@Column(name = "last_login")
 	private LocalDateTime lastLogin;
